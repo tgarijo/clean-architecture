@@ -1,0 +1,1 @@
+crea una funcion trivial en el fichero healtth.ts para comprobar el correcto funcionamiento del tooling y el arraque. Tambien crea el fichero /test/shared/health.spec.ts que pruebe la funcion en health
