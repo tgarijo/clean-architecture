@@ -1,4 +1,15 @@
-import { checkHealth } from "src/shared/health";
+import { buildServer } from "src/infrastructure/http/server";
 
-const health = checkHealth();
-console.log(`System health status: ${health.status} at ${health.timestamp.toISOString()} with uptime ${health.uptime}ms`);
+
+const port = Number(process.env.PORT) || 3000;
+
+buildServer().then(app => {
+    
+    app.listen({ port }, (err, address) => {
+        if (err) {
+            console.error(err);
+            process.exit(1);
+        }
+        console.log(`Server listening at ${address}`);
+    });
+});
